@@ -1,7 +1,7 @@
 package com.metalmaked.metalmaked.persistence.repositoryImpl;
 
 import com.metalmaked.metalmaked.domain.dto.PersonaRolesDTO;
-import com.metalmaked.metalmaked.domain.repository.PersonaRepository;
+import com.metalmaked.metalmaked.domain.repository.PersonaRolesRepository;
 import com.metalmaked.metalmaked.persistence.crud.PersonaRolesCrudRepository;
 import com.metalmaked.metalmaked.persistence.entity.PersonaRoles;
 import com.metalmaked.metalmaked.persistence.mapper.PersonaRolesMapper;
@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public class PersonaRolesRepositoryImpl implements PersonaRepository {
+public class PersonaRolesRepositoryImpl implements PersonaRolesRepository {
 
     @Autowired
     private PersonaRolesCrudRepository personaRolesCrudRepository;

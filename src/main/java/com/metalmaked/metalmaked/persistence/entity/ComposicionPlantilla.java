@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "composicion_plantilla")
-@IdClass(ComposicionPlantillaId.class)
 public class ComposicionPlantilla {
 
     @Id

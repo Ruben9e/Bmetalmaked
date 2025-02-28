@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "envio_plano")
-@IdClass(EnvioPlanoId.class)
 public class EnvioPlano {
 
     @Id
