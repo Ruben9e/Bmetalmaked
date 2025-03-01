@@ -1,22 +1,11 @@
+
 package com.metalmaked.metalmaked.domain.repository;
 
-import com.metalmaked.metalmaked.domain.dto.DetalleOrdenDTO;
+import com.metalmaked.metalmaked.persistence.entity.DetalleOrden;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
-public interface DetalleOrdenRepository {
-
-    Iterable<DetalleOrdenDTO> findAll();
-
-    Optional<DetalleOrdenDTO> findById(Integer id);
-
-    DetalleOrdenDTO save(DetalleOrdenDTO detalleOrdenDTO);
-
-    DetalleOrdenDTO update(DetalleOrdenDTO detalleOrdenDTO);
-
-    void delete(Integer id);
-
-    boolean existsById(Integer id);
-
-    long count();
+@Repository
+public interface DetalleOrdenRepository extends JpaRepository<DetalleOrden, Integer> {
 }
+

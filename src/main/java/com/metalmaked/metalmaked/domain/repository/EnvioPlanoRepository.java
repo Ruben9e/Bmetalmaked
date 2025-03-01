@@ -8,15 +8,15 @@ public interface EnvioPlanoRepository {
 
     Iterable<EnvioPlanoDTO> findAll();
 
-    Optional<EnvioPlanoDTO> findById(Integer id);
+    Optional<EnvioPlanoDTO> findById(Integer id, Integer idPlano);
 
     EnvioPlanoDTO save(EnvioPlanoDTO envioPlanoDTO);
 
     EnvioPlanoDTO update(EnvioPlanoDTO envioPlanoDTO);
 
-    void delete(Integer id);
+    void delete(Integer id, Integer idPlano);
 
-    boolean existsById(Integer id);
+    boolean existsById(Integer idOrden, Integer id);
 
     long count();
 }

@@ -28,8 +28,9 @@ public class EnvioPlanoRepositoryImpl implements EnvioPlanoRepository {
     }
 
     @Override
-    public Optional<EnvioPlanoDTO> findById(Integer id) {
-        return envioPlanoCrudRepository.findById(id).map(envioPlanoMapper::toDto);
+    public Optional<EnvioPlanoDTO> findById(Integer idOrden, Integer idPlano) {
+        return envioPlanoCrudRepository.findByIdOrdenAndIdPlano(idOrden, idPlano)
+                .map(envioPlanoMapper::toDto);
     }
 
     @Override
@@ -41,7 +42,7 @@ public class EnvioPlanoRepositoryImpl implements EnvioPlanoRepository {
 
     @Override
     public EnvioPlanoDTO update(EnvioPlanoDTO envioPlanoDTO) {
-        if (existsById(envioPlanoDTO.getIdOrden())) {
+        if (existsById(envioPlanoDTO.getIdOrden(), envioPlanoDTO.getIdPlano())) {
             EnvioPlano envioPlano = envioPlanoMapper.toEntity(envioPlanoDTO);
             EnvioPlano updatedEnvioPlano = envioPlanoCrudRepository.save(envioPlano);
             return envioPlanoMapper.toDto(updatedEnvioPlano);
@@ -50,17 +51,17 @@ public class EnvioPlanoRepositoryImpl implements EnvioPlanoRepository {
     }
 
     @Override
-    public void delete(Integer id) {
-        if (existsById(id)) {
-            envioPlanoCrudRepository.deleteById(id);
+    public void delete(Integer idOrden, Integer idPlano) {
+        if (existsById(idOrden, idPlano)) {
+            envioPlanoCrudRepository.deleteByIdOrdenAndIdPlano(idOrden, idPlano);
         } else {
             throw new IllegalArgumentException("El registro no existe");
         }
     }
 
     @Override
-    public boolean existsById(Integer id) {
-        return envioPlanoCrudRepository.existsById(id);
+    public boolean existsById(Integer idOrden, Integer idPlano) {
+        return envioPlanoCrudRepository.existsByIdOrdenAndIdPlano(idOrden, idPlano);
     }
 
     @Override
